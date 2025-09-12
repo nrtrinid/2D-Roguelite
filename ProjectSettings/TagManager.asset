@@ -13,13 +13,13 @@ TagManager:
   - UI
   - 
   - 
-  - 
-  - 
-  - 
-  - 
-  - 
-  - 
-  - 
+  - CameraBounds
+  - Floor
+  - Player
+  - Enemy
+  - Projectile
+  - Walls
+  - Doors
   - 
   - 
   - 
@@ -41,14 +41,32 @@ TagManager:
   - name: Default
     uniqueID: 0
     locked: 0
-  - name: ground
-    uniqueID: 1904367393
+  - name: Background
+    uniqueID: 1191923233
     locked: 0
-  - name: walls
-    uniqueID: 43162107
+  - name: Floor
+    uniqueID: 4155817791
     locked: 0
-  - name: actors
-    uniqueID: 2756653191
+  - name: WallsBack
+    uniqueID: 819782669
+    locked: 0
+  - name: Characters
+    uniqueID: 2103221647
+    locked: 0
+  - name: Props
+    uniqueID: 109725871
+    locked: 0
+  - name: WallsFront
+    uniqueID: 3283875181
+    locked: 0
+  - name: Projectiles
+    uniqueID: 4284670753
+    locked: 0
+  - name: VFX
+    uniqueID: 562942329
+    locked: 0
+  - name: UI
+    uniqueID: 1968395819
     locked: 0
   m_RenderingLayers:
   - Default

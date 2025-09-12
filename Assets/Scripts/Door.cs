@@ -1,24 +1,25 @@
 using UnityEngine;
+using Unity.Cinemachine;
 
-public class TeleportDoor : MonoBehaviour
+public class Door : MonoBehaviour
 {
-    public GameObject targetRoomRoot;   // drag the root GameObject of the target room (existing in scene)
-    public Transform targetSpawn;      // drag the spawn Transform inside the target room
-    public GameObject currentRoomRoot; // drag THIS room’s root (to toggle off), optional
-    public bool toggleRooms = true;    // if true, deactivate current room and activate target
+    public Transform destination;
+    public PolygonCollider2D destinationBounds;
 
     private void OnTriggerEnter2D(Collider2D other)
     {
         if (!other.CompareTag("Player")) return;
-        if (!targetSpawn) { Debug.LogWarning("No targetSpawn set."); return; }
 
-        // Teleport player
-        other.transform.position = targetSpawn.position;
+        // move player to the destination point
+        other.transform.position = destination.position;
 
-        if (toggleRooms)
+        // find the active CinemachineCamera
+        var vcam = Object.FindFirstObjectByType<CinemachineCamera>();
+        if (vcam != null)
         {
-            if (currentRoomRoot) currentRoomRoot.SetActive(false);
-            if (targetRoomRoot)  targetRoomRoot.SetActive(true);
+            var conf = vcam.GetComponent<CinemachineConfiner2D>();
+            if (conf != null)
+                conf.BoundingShape2D = destinationBounds;
         }
     }
 }
