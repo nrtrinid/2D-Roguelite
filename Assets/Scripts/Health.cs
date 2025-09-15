@@ -17,19 +17,28 @@ public class Health : MonoBehaviour
     void Awake() { hp = maxHP; }
     public int Current => hp;
 
-    public void TakeDamage(int amount)
+    bool isDead;
+public void TakeDamage(int amount) 
+{
+    if (amount <= 0 || isDead) return;
+
+    hp -= amount;
+    onDamaged?.Invoke();
+
+    // Trigger hit-stop only if NOT the player
+    if (!CompareTag("Player"))
     {
-        if (amount <= 0) return;
-
-        hp -= amount;
-        onDamaged?.Invoke();
-
-        if (hp <= 0)
-        {
-            onDeath?.Invoke();
-            if (destroyOnDeath) Destroy(gameObject);   // enemies true, player false
-        }
+        HitStop.I?.DoStop(0.03f, 0f);
     }
 
-    public void ResetHP() => hp = maxHP;
+    if (hp <= 0)
+    {
+        isDead = true;
+        onDeath?.Invoke();
+        if (destroyOnDeath) Destroy(gameObject);
+    }
+}
+
+public void ResetHP() { hp = maxHP; isDead = false; }
+
 }
