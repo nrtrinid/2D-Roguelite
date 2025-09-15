@@ -8,12 +8,12 @@ public class PlayerController : MonoBehaviour
     public float moveSpeed = 6f;
 
     [Header("Aiming")]
-    public Transform weaponPivot;   // parent that rotates
+    public Transform weaponPivot;   // rotates toward aim
     public Transform firePoint;     // muzzle
     [Range(0f, 1f)] public float stickDeadzone = 0.15f;
 
-    [Header("Crosshair")]           // NEW
-    public Transform crosshair;     // assign your Crosshair object in Inspector (authoritative aim)
+    [Header("Crosshair")]
+    public Transform crosshair;     // authoritative aim
 
     [Header("Shooting")]
     public WeaponShooter shooter;
@@ -38,24 +38,33 @@ public class PlayerController : MonoBehaviour
         // --- movement only ---
         moveInput = actions["Move"].ReadValue<Vector2>();
 
-        // --- AIM: crosshair is the source of truth ---
+        // --- AIM: crosshair is source of truth ---
         if (crosshair && weaponPivot)
         {
             Vector2 aimDir = ((Vector2)crosshair.position - (Vector2)weaponPivot.position).normalized;
-
             if (aimDir.sqrMagnitude > 0.0001f)
+                weaponPivot.right = aimDir;
+        }
+
+        // --- FIRE handling ---
+        if (shooter && firePoint)
+        {
+            Vector2 aimDir = firePoint.right; // muzzle forward
+
+            if (actions["Fire"].WasPressedThisFrame())
             {
-                weaponPivot.right = -aimDir;
+                shooter.OnFirePressed(aimDir, gameObject);
+            }
+            if (actions["Fire"].IsPressed())
+            {
+                // Auto handled inside WeaponShooter.Update()
+                // nothing extra here
+            }
+            if (actions["Fire"].WasReleasedThisFrame())
+            {
+                shooter.OnFireReleased();
             }
         }
-
-        // --- fire ---
-        if (actions["Fire"].WasPressedThisFrame() && shooter && firePoint)
-        {
-            shooter.TryFire(firePoint.right);
-        }
-
-        // if (actions["Pause"].WasPressedThisFrame()) { /* PauseMenu.Toggle(); */ }
     }
 
     void FixedUpdate()
