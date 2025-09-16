@@ -10,7 +10,7 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 0246d0984fcc5ab41a52846775f211fc, type: 3}
-  m_Name: TestWeapon
+  m_Name: WeaponDefinition
   m_EditorClassIdentifier: Assembly-CSharp::WeaponDefinition
   displayName: Tester
   weaponSprite: {fileID: 3625043607559282579, guid: 045b15ec09bba42448d89db77fa6f20a, type: 3}

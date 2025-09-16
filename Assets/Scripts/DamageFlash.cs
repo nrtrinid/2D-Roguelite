@@ -18,16 +18,17 @@ public class FlashOnHit : MonoBehaviour
     public void TriggerFlash()
     {
         if (!sr) return;
-        t = flashTime;
         sr.color = flashColor;
+        t = flashTime;  // reset timer on every hit
     }
+
 
     void Update()
     {
-        if (t > 0f && sr)
-        {
-            t -= Time.deltaTime;
-            if (t <= 0f) sr.color = baseColor;
-        }
+        if (t <= 0f || !sr) return;
+
+        t -= Time.deltaTime;
+        if (t <= 0f) sr.color = baseColor;
     }
+
 }
