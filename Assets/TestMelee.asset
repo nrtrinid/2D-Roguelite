@@ -1,0 +1,28 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 740f683b76350734aa2db52711e05c96, type: 3}
+  m_Name: TestMelee
+  m_EditorClassIdentifier: Assembly-CSharp::MeleeWeaponDefinition
+  damage: 1
+  arcDegrees: 110
+  range: 0.75
+  windup: 0.08
+  activeTime: 0.15
+  recovery: 0.12
+  hitMask:
+    serializedVersion: 2
+    m_Bits: 2048
+  knockback: 8
+  swingVfxPrefab: {fileID: 4287564958329640051, guid: b64ddae242204b54e83823bff1f6221c, type: 3}
+  hitVfxPrefab: {fileID: 8727312723423936458, guid: ce5419153850f6542ae6e4aff57370d5, type: 3}
+  swingSfx: {fileID: 0}
+  hitSfx: {fileID: 0}
