@@ -861,9 +861,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::RoomSequencer
   roomPrefabs:
+  - {fileID: 7167472992471757375, guid: 0740721ed3389074da464b8f4e8f86e2, type: 3}
   - {fileID: 7651864774261935661, guid: 7943d1381958cae4081c7b6549f33464, type: 3}
   - {fileID: 7167472992471757375, guid: 2bcd339143fa7a247aa7666bd21e8de0, type: 3}
-  - {fileID: 7167472992471757375, guid: 0740721ed3389074da464b8f4e8f86e2, type: 3}
   roomsRoot: {fileID: 664656585}
   playerSpawn: {fileID: 695665727}
   playerPrefab: {fileID: 494330812}
@@ -1403,8 +1403,8 @@ Transform:
   m_GameObject: {fileID: 1492115693}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0.34, y: -0.115, z: 0}
-  m_LocalScale: {x: 1.5, y: 0.25, z: 1}
+  m_LocalPosition: {x: 0.55, y: -0.115, z: 0}
+  m_LocalScale: {x: 2.87, y: 1.55, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 956725169}
@@ -1456,7 +1456,7 @@ SpriteRenderer:
   m_SortingLayerID: 562942329
   m_SortingLayer: 8
   m_SortingOrder: 10
-  m_Sprite: {fileID: 7482667652216324306, guid: a73c7a07940a72a4e8e06f8a85082d3a, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 54b6fc07fec49c84ba7cedf6291a4a85, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -1978,6 +1978,30 @@ PrefabInstance:
       propertyPath: bulletPool
       value: 
       objectReference: {fileID: 1586003233}
+    - target: {fileID: 6923243996180775802, guid: 172c3c44af97fa34c9a8539681b61b23, type: 3}
+      propertyPath: m_Size.x
+      value: 0.7
+      objectReference: {fileID: 0}
+    - target: {fileID: 6923243996180775802, guid: 172c3c44af97fa34c9a8539681b61b23, type: 3}
+      propertyPath: m_Size.y
+      value: 1.41
+      objectReference: {fileID: 0}
+    - target: {fileID: 6923243996180775802, guid: 172c3c44af97fa34c9a8539681b61b23, type: 3}
+      propertyPath: m_Offset.x
+      value: -0.11
+      objectReference: {fileID: 0}
+    - target: {fileID: 6923243996180775802, guid: 172c3c44af97fa34c9a8539681b61b23, type: 3}
+      propertyPath: m_Offset.y
+      value: -0.03
+      objectReference: {fileID: 0}
+    - target: {fileID: 7469488912014338733, guid: 172c3c44af97fa34c9a8539681b61b23, type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 7469488912014338733, guid: 172c3c44af97fa34c9a8539681b61b23, type: 3}
+      propertyPath: m_WasSpriteAssigned
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects:
